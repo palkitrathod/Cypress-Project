@@ -1,3 +1,4 @@
+import 'cypress-file-upload';
 
 it('login test', function() 
 {
@@ -24,6 +25,9 @@ it('login test', function()
     cy.get('#StartDateUtc').click(270, 20, {force: true});
     //cy.get('#StartDateUtc').nextAll('span').click();
     cy.get('#EndDateUtc').click(270, 20, {force: true});
+
+    //Upload file 
+    cy.get('#File').attachFile()
 
     
 
