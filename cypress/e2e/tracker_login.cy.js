@@ -23,6 +23,9 @@ it('login test', function()
     //cy.get('#StartDateUtc').contains('13').click()
     cy.get('#StartDateUtc').click(270, 20, {force: true});
     //cy.get('#StartDateUtc').nextAll('span').click();
+    cy.get('#EndDateUtc').click(270, 20, {force: true});
+
+    
 
 
 
