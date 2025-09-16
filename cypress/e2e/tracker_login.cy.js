@@ -23,8 +23,9 @@ it('login test and file upload', function() {
   cy.get('.select2-results__option').contains('branch2').click();
 
   // Calendar Start Date / End Date
-  cy.get('#StartDateUtc').click(270, 20, { force: true });
-  cy.get('#EndDateUtc').click(270, 20, { force: true });
+  cy.get('#StartDateUtc').clear().type('2025-09-16');  
+  cy.get('#EndDateUtc').clear().type('2025-09-17');
+
 
   // Upload File
   cy.fixture('FINAL (2).xlsx').as('file');   // file must be inside cypress/fixtures
