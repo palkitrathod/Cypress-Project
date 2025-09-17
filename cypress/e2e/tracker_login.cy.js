@@ -9,8 +9,13 @@ it('login test and file upload', function() {
   cy.get('.btn-primary').click()
 
   // Walk Creation
-  cy.get('#AccountId').select("Palkit's Account", { force: true })
-  cy.get('#TemplateTypeId').select("Palkit's Matrix", { force: true })
+  cy.get('#select2-AccountId-container').click()
+  cy.get('.select2-results__option').contains("Palkit's Account").click();
+  cy.wait(3000)
+  //cy.get('#AccountId').select("Palkit's Account", { force: true })
+  //cy.get('#TemplateTypeId').select("Palkit's Matrix", { force: true })
+  cy.get('#select2-TemplateTypeId-container').click()
+  cy.get('.select2-results__option').contains("Palkit's Matrix").click()
   cy.contains('Description').type("Description 1")
   cy.contains('Reference').type('Reference 1')
 
