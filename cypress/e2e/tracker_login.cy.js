@@ -28,8 +28,8 @@ it('login test and file upload', function() {
   cy.get('.select2-results__option').contains('branch2').click();
 
   // Calendar Start Date / End Date
-  cy.get('#StartDateUtc').clear().type('2025-09-16');  
-  cy.get('#EndDateUtc').clear().type('2025-09-17');
+  cy.get('#StartDateUtc').clear().type('2025-09-17');  
+  cy.get('#EndDateUtc').clear().type('2025-09-19');
 
 
   // Upload File
@@ -38,6 +38,7 @@ it('login test and file upload', function() {
 
   //Submit the form
   cy.get('[name="save"]').click()
+  cy.wait(5000)
 
 
 });
