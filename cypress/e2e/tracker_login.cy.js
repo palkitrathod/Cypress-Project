@@ -40,5 +40,4 @@ it('login test and file upload', function() {
   cy.get('[name="save"]').click()
 
 
-
 });
