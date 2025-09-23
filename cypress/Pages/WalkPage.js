@@ -16,22 +16,23 @@ class WalksPage {
     cy.get('.select2-results__option', { timeout: 6000 }).contains(accountName).click();
     // verify visible label updated
     cy.get('#select2-AccountId-container').should('contain.text', accountName);
+    cy.wait(3000)
   }
 
   selectTemplate(templateName) 
   {
     cy.get('#select2-TemplateTypeId-container').click();
-    cy.get('.select2-results__option', { timeout: 6000 }).contains(templateName).click();
+    cy.get('.select2-results__option').contains(templateName).click();
   }
 
   setDescription(desc) 
   {
-    cy.contains('Description').clear().type(desc);
+    cy.contains('Description').type(desc);
   }
 
   setReference(ref) 
   {
-    cy.contains('Reference').clear().type(ref);
+    cy.contains('Reference').type(ref);
   }
 
   selectState(stateName) 
@@ -47,15 +48,17 @@ class WalksPage {
   }
 
   // accepts dates in dd-mm-yyyy and converts to yyyy-mm-dd for input[type=date]
-  setDates(startDdMmYyyy, endDdMmYyyy) 
-  {
-    const toIso = (d) => {
-      const [dd, mm, yyyy] = d.split('-');
-      return `${yyyy}-${mm}-${dd}`;
-    };
-    cy.get('#StartDateUtc').clear().type(toIso(startDdMmYyyy)).should('have.value', toIso(startDdMmYyyy));
-    cy.get('#EndDateUtc').clear().type(toIso(endDdMmYyyy)).should('have.value', toIso(endDdMmYyyy));
-  }
+  setDates(startIso, endIso) {
+  cy.get('#StartDateUtc')
+    .invoke('val', '') // clear safely for date inputs
+    .type(startIso, { force: true })
+    .should('have.value', startIso);
+
+  cy.get('#EndDateUtc')
+    .invoke('val', '') // clear safely
+    .type(endIso, { force: true })
+    .should('have.value', endIso);
+}
 
   uploadFileFromFixture(fileName) 
   {
