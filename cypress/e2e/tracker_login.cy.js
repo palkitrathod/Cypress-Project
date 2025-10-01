@@ -1,6 +1,6 @@
 // cypress/e2e/tracker_pom.cy.js
-import LoginPage from '../pages/LoginPage'
-import WalkPage from '../pages/WalkPage'
+import LoginPage from '../pages/LoginPage';
+import WalkPage from '../pages/WalkPage';
 
 describe('Tracker - create walk (POM)', () => 
   {
@@ -22,10 +22,10 @@ describe('Tracker - create walk (POM)', () =>
     WalkPage.selectBranch('branch2')
 
     // use dd-mm-yyyy (converted inside)
-    WalkPage.setDates('2025-09-12', '2025-09-10')
+    WalkPage.setDates('2025-09-12', '2025-09-15')
 
     // upload (ensure file is in cypress/fixtures)
-    WalkPage.uploadFileFromFixture('FINAL (2).xlsx')
+    WalkPage.uploadFileFromFixture('FINAL (3).xlsx')
 
     // submit
     WalkPage.submit();
